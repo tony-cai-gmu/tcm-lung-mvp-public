@@ -1,0 +1,128 @@
+{ 
+  "case_id": "f015",
+  "patient_info": {
+    "name": "庄某某",
+    "gender": "女",
+    "age": 27
+  },
+  "doctor": "黄河清",
+  "diagnosis": [
+    "喘证",
+    "未分化结缔组织病相关间质性肺炎"
+  ],
+  "zhengxing": [
+    "气阴两虚夹痰湿"
+  ],
+  "symptoms": [
+    "咳嗽",
+    "咳少量白粘痰",
+    "气喘活动后明显"
+  ],
+  "tongue": [
+    "舌质红",
+    "苔根厚腻"
+  ],
+  "pulse": [
+    "脉细数"
+  ],
+  "prescriptions": [
+    {
+      "formula": null,
+      "method": "7剂，水煎服，激素减成20mg qd",
+      "herbs": [
+        {
+          "name": "黄芪",
+          "dose": "20g",
+          "prep": null
+        },
+        {
+          "name": "术",
+          "dose": "9g",
+          "prep": null
+        },
+        {
+          "name": "防风",
+          "dose": "9g",
+          "prep": null
+        },
+        {
+          "name": "麦冬",
+          "dose": "15g",
+          "prep": null
+        },
+        {
+          "name": "五味子",
+          "dose": "9g",
+          "prep": null
+        },
+        {
+          "name": "桑叶",
+          "dose": "12g",
+          "prep": null
+        },
+        {
+          "name": "杏仁",
+          "dose": "9g",
+          "prep": null
+        },
+        {
+          "name": "桔梗",
+          "dose": "6g",
+          "prep": null
+        },
+        {
+          "name": "黄芩",
+          "dose": "12g",
+          "prep": null
+        },
+        {
+          "name": "鱼腥草",
+          "dose": "30g",
+          "prep": null
+        },
+        {
+          "name": "蜜紫菀",
+          "dose": "12g",
+          "prep": "蜜炙"
+        },
+        {
+          "name": "百部",
+          "dose": "12g",
+          "prep": null
+        },
+        {
+          "name": "地龙",
+          "dose": "15g",
+          "prep": null
+        },
+        {
+          "name": "苍术",
+          "dose": "9g",
+          "prep": null
+        },
+        {
+          "name": "薏苡仁",
+          "dose": "20g",
+          "prep": null
+        },
+        {
+          "name": "茯苓",
+          "dose": "15g",
+          "prep": null
+        },
+        {
+          "name": "泽泻",
+          "dose": "24g",
+          "prep": null
+        },
+        {
+          "name": "甘草",
+          "dose": "3g",
+          "prep": null
+        }
+      ]
+    }
+  ],
+  "comment": null,
+  "original_text": "黄河清教授治疗咳嗽经验探析 病案: 患者 庄某某 ,女性 27 岁,以“反复咳嗽、咳痰伴气喘5月”为主诉就诊我院门诊5月前就诊于当地医院 ,行胸部 CT 示双肺胸膜下见斑点、斑片,玻璃样阴影,边缘模糊 ,其内可见透亮影。抗核抗体阳性考虑未分化结缔组织病相关间质性肺炎住院经泼尼松抗炎、帕夫林及羟氯喹调节免疫等治疗。出院时继续服用“泼尼松 25mg qd”抗炎治疗。辰下: 咳嗽、咳少量白粘痰 ,气喘 活动后明显 ,舌质红、苔根厚腻 ,脉细数。中医病名为喘证 辨证属气阴两虚夹痰湿方药用黄芪 20g,术 9g,防风9g,麦冬 15g,五味子 9g,桑叶 12g,杏仁9g 桔梗 6g ,黄芩 12g鱼腥草 30g,蜜紫菀12g 百部 12g ,地龙 15g,苍术9g,薏苡仁 20g,茯苓15g,泽泻24g,甘草3g。7剂,水煎服,激素减成20mg qd。"
+}
