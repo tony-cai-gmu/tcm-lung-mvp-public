@@ -17,7 +17,8 @@ interface ApiResponse {
 
 // ✅ 改成相对路径，由 Nginx 代理到 backend
 //const API_BASE = "/api";
-///const API_BASE = "https://ubiquitous-umbrella-7x5q7j699grcw6xr-8002.app.github.dev";
+//const API_BASE = "https://ubiquitous-umbrella-7x5q7j699grcw6xr-8002.app.github.dev";
+
 const API_BASE = "https://tcm-backend-nxdi.onrender.com";
 
 // ✅ 改成云端香港服务器公网 IP
