@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 
-const API_BASE = "https://ubiquitous-umbrella-7x5q7j699grcw6xr-8002.app.github.dev"; // ⚠️ 改成你的后端地址
+//const API_BASE = "https://ubiquitous-umbrella-7x5q7j699grcw6xr-8002.app.github.dev"; // ⚠️ 改成你的后端地址
+const API_BASE =
+  process.env.REACT_APP_API_BASE || "https://tcm-backend-nxdi.onrender.com";
 
 const JsonEditorPanel: React.FC = () => {
   const [fileList, setFileList] = useState<string[]>([]);
