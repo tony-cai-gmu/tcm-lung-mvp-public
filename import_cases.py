@@ -1,9 +1,18 @@
 # -*- coding: utf-8 -*-
+"""
+中医病例数据导入脚本
+作用：批量从 json_data/ 文件夹读取 f*.json 文件并导入 Neo4j。
+说明：
+- 保持 Case / Diagnosis / ZhengXing / Prescription / Herb 结构与 app.py 的 /refresh_kg 一致。
+- Prescription 的唯一键为 (case_id, idx)。
+- Herb 关系属性保存于 r.dose / r.prep，不再写入 Herb 节点属性。
+"""
+
 import json, glob, os
 from neo4j import GraphDatabase
 from dotenv import load_dotenv
 
-# 加载 .env 文件
+# ======== 加载 .env ========
 load_dotenv()
 
 URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
@@ -11,11 +20,13 @@ AUTH = (os.getenv("NEO4J_USER", "neo4j"), os.getenv("NEO4J_PASS", "test12345"))
 
 driver = GraphDatabase.driver(URI, auth=AUTH)
 
+# ======== 执行函数 ========
 def run(tx, q, p=None):
     tx.run(q, p or {})
 
+
 with driver.session() as s:
-    # ====== 约束和索引 ======
+    # ====== 唯一约束 ======
     s.execute_write(run, """
     CREATE CONSTRAINT case_id_unique IF NOT EXISTS
     FOR (c:Case) REQUIRE c.case_id IS UNIQUE
@@ -34,14 +45,15 @@ with driver.session() as s:
     """)
 
     # ====== 导入 json_data/ 文件夹下的 JSON ======
-    files = sorted(glob.glob(os.path.join("json_data", "f*.json")))
+    files = sorted(glob.glob(os.path.join("json_data", "w*.json")))
     print(f"🔍 找到 {len(files)} 个病例文件。")
 
     for path in files:
         with open(path, "r", encoding="utf-8") as f:
             v = json.load(f)
 
-        print(f"➡ 导入 {v['case_id']} ({path}) ...")
+        cid = v["case_id"]
+        print(f"➡ 导入 {cid} ({os.path.basename(path)}) ...")
 
         # ---- Case 节点 ----
         s.execute_write(run, """
@@ -51,7 +63,7 @@ with driver.session() as s:
             c.pulse=$pulse,
             c.original_text=$original_text
         """, {
-            "case_id": v["case_id"],
+            "case_id": cid,
             "symptoms": v.get("symptoms", []),
             "tongue": v.get("tongue", []),
             "pulse": v.get("pulse", []),
@@ -65,7 +77,7 @@ with driver.session() as s:
             WITH d
             MATCH (c:Case {case_id:$cid})
             MERGE (c)-[:HAS_DIAGNOSIS]->(d)
-            """, {"cid": v["case_id"], "dname": dname})
+            """, {"cid": cid, "dname": dname})
 
         # ---- ZhengXing 节点 & 关系 ----
         for zname in v.get("zhengxing", []):
@@ -74,7 +86,7 @@ with driver.session() as s:
             WITH z
             MATCH (c:Case {case_id:$cid})
             MERGE (c)-[:HAS_ZHENGXING]->(z)
-            """, {"cid": v["case_id"], "zname": zname})
+            """, {"cid": cid, "zname": zname})
 
         # ---- Prescriptions & Herbs ----
         for i, p in enumerate(v.get("prescriptions", [])):
@@ -86,7 +98,7 @@ with driver.session() as s:
             MATCH (c:Case {case_id:$cid})
             MERGE (c)-[:HAS_PRESCRIPTION]->(pr)
             """, {
-                "cid": v["case_id"],
+                "cid": cid,
                 "idx": i,
                 "formula": p.get("formula"),
                 "method": p.get("method")
@@ -96,7 +108,6 @@ with driver.session() as s:
                 s.execute_write(run, """
                 MERGE (herb:Herb {name:$name})
                 ON CREATE SET herb.first_seen = date()
-                SET herb.last_dose=$dose, herb.prep=$prep
                 WITH herb
                 MATCH (pr:Prescription {case_id:$cid, idx:$idx})
                 MERGE (pr)-[r:CONTAINS_HERB]->(herb)
@@ -105,13 +116,13 @@ with driver.session() as s:
                     "name": h.get("name"),
                     "dose": h.get("dose"),
                     "prep": h.get("prep"),
-                    "cid": v["case_id"],
+                    "cid": cid,
                     "idx": i
                 })
 
 print("✅ 所有病例导入完成。")
 
-# ====== 导入完成后，做简单验证 ======
+# ====== 导入完成后，简单统计 ======
 with driver.session() as s:
     print("\n📊 节点数量:")
     res = s.run("""

@@ -17,9 +17,14 @@ interface ApiResponse {
 
 // ✅ 改成相对路径，由 Nginx 代理到 backend
 //const API_BASE = "/api";
-// const API_BASE = "https://silver-cod-qx4rv55wrjwc465j-8001.app.github.dev";
+const API_BASE = "https://ubiquitous-umbrella-7x5q7j699grcw6xr-8002.app.github.dev";
+
 // ✅ 改成云端香港服务器公网 IP
-const API_BASE = "http://150.109.100.16:8001";
+//const API_BASE = "http://150.109.100.16:8001";
+//const API_BASE = "http://150.109.100.16:8002";
+//const API_BASE = "http://0.0.0.0:8002";
+
+
 
 // key 翻译映射
 const keyMap: Record<string, string> = {
