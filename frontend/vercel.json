@@ -2,14 +2,18 @@
   "version": 2,
   "name": "tcm-frontend",
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } }
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
   ],
   "env": {
-    "REACT_APP_API_BASE": "https://tcm-backend.onrender.com"
+    "REACT_APP_API_BASE": "https://tcm-backend-nxdi.onrender.com"
   },
   "framework": "create-react-app",
   "github": {
     "enabled": true,
-    "autoJobCancelation": true
+    "autoJobCancellation": true
   }
 }
