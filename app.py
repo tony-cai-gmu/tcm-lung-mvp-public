@@ -137,9 +137,22 @@ RECOMMENDED_QUERIES = [
 
 # ========== FastAPI ==========
 app = FastAPI(title="LLM → Cypher → Neo4j (Read-Only, Single-Turn Context)", version="1.0.11")
+'''
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+'''
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://tcm-frontend.vercel.app",   # ✅ Vercel 前端
+        "https://tcm-backend-nxdi.onrender.com",  # ✅ Render 自己
+        "*"  # 临时开放测试
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
