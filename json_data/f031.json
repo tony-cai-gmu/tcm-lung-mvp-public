@@ -1,0 +1,53 @@
+{
+  "case_id": "f031",
+  "original_text": "杨少山治肺部疾患验案三则\n患者,男,72岁,2012年4月26 日来诊。患者有慢性喘息性支气管炎 10 余年,加重半月。发病时常感胸闷不适,咳嗽,痰多,伴喉中哮鸣,畏寒,肢冷,清晨起床时症状更明显。西医治疗效果不明显。胸片示:支气管炎,肺纹理增粗。面青,舌苔白腻,脉弦滑。证属寒哮治宜温肺散寒,化痰平喘。处方:麻黄6g,葶苈子 10 g,白芥子9 g,桑白皮 15 g,款冬花 12 g,炙紫菀 12 g,薏苡仁 30 g,杏仁 9 g,五味子6 g,苏子9 g,代赭石 20 g。剂显效。",
+  "doctor": "杨少山",
+  "patient": {
+    "name": "不详",
+    "gender": "男",
+    "age": 72
+  },
+  "diagnosis": [
+    "慢性喘息性支气管炎",
+    "寒哮"
+  ],
+  "zhengxing": [
+    "寒哮"
+  ],
+  "symptoms": [
+    "胸闷",
+    "咳嗽",
+    "痰多",
+    "喉中哮鸣",
+    "畏寒",
+    "肢冷",
+    "清晨起床时症状更明显",
+    "面青"
+  ],
+  "tongue": [
+    "舌苔白腻"
+  ],
+  "pulse": [
+    "脉弦滑"
+  ],
+  "prescriptions": [
+    {
+      "formula": null,
+      "method": null,
+      "herbs": [
+        { "name": "麻黄", "dose": "6g", "prep": null },
+        { "name": "葶苈子", "dose": "10g", "prep": null },
+        { "name": "白芥子", "dose": "9g", "prep": null },
+        { "name": "桑白皮", "dose": "15g", "prep": null },
+        { "name": "款冬花", "dose": "12g", "prep": null },
+        { "name": "炙紫菀", "dose": "12g", "prep": null },
+        { "name": "薏苡仁", "dose": "30g", "prep": null },
+        { "name": "杏仁", "dose": "9g", "prep": null },
+        { "name": "五味子", "dose": "6g", "prep": null },
+        { "name": "苏子", "dose": "9g", "prep": null },
+        { "name": "代赭石", "dose": "20g", "prep": null }
+      ]
+    }
+  ],
+  "comment": null
+}

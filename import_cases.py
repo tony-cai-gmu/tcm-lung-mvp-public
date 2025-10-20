@@ -45,7 +45,7 @@ with driver.session() as s:
     """)
 
     # ====== 导入 json_data/ 文件夹下的 JSON ======
-    files = sorted(glob.glob(os.path.join("json_data", "w*.json")))
+    files = sorted(glob.glob(os.path.join("json_data", "f*.json")))
     print(f"🔍 找到 {len(files)} 个病例文件。")
 
     for path in files:

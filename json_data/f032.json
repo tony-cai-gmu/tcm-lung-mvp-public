@@ -1,0 +1,54 @@
+{
+  "case_id": "f032",
+  "original_text": "杨少山治肺部疾患验案三则\n患者,男,39岁,2012年5月29 日来诊。患者有支气管扩张病史2年。1个月前因淋雨后突发化脓性肺炎,经住院治疗后症状基本控制，处于恢复期。出院后病人一直低热不退,伴胸胁隐痛,咳嗽,乏力。排除肺结核、肺部肿瘤等。胸片示:慢性支气管扩张,肺纹理增粗。刻诊:形体消瘦,面色不华,舌淡红苔薄,脉细。证属肺痈恢复期。治宜益气养阴,清热解毒。处方:南沙参15 g,北沙参 15 g,麦冬 15 g,川贝母 3 g,半枝莲 15 g,白花蛇舌草 15 g,芦根 20 g,冬瓜子 15 g,薏苡仁 30 g,桔梗5 g,青蒿 15 g,地骨皮 15 g,甘草5 g。连续服用 14剂,低热退,胸胁隐痛除。",
+  "doctor": "杨少山",
+  "patient": {
+    "name": "不详",
+    "gender": "男",
+    "age": 39
+  },
+  "diagnosis": [
+    "支气管扩张",
+    "化脓性肺炎",
+    "肺痈恢复期"
+  ],
+  "zhengxing": [
+    "肺痈恢复期"
+  ],
+  "symptoms": [
+    "低热",
+    "胸胁隐痛",
+    "咳嗽",
+    "乏力",
+    "形体消瘦",
+    "面色不华"
+  ],
+  "tongue": [
+    "舌淡红苔薄"
+  ],
+  "pulse": [
+    "脉细"
+  ],
+  "prescriptions": [
+    {
+      "formula": null,
+      "method": "连续服用14剂",
+      "herbs": [
+        { "name": "南沙参", "dose": "15g", "prep": null },
+        { "name": "北沙参", "dose": "15g", "prep": null },
+        { "name": "麦冬", "dose": "15g", "prep": null },
+        { "name": "川贝母", "dose": "3g", "prep": null },
+        { "name": "半枝莲", "dose": "15g", "prep": null },
+        { "name": "白花蛇舌草", "dose": "15g", "prep": null },
+        { "name": "芦根", "dose": "20g", "prep": null },
+        { "name": "冬瓜子", "dose": "15g", "prep": null },
+        { "name": "薏苡仁", "dose": "30g", "prep": null },
+        { "name": "桔梗", "dose": "5g", "prep": null },
+        { "name": "青蒿", "dose": "15g", "prep": null },
+        { "name": "地骨皮", "dose": "15g", "prep": null },
+        { "name": "甘草", "dose": "5g", "prep": null }
+      ]
+    }
+  ],
+  "comment": null
+}

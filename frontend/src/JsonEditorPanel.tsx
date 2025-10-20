@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 
-//const API_BASE = "https://ubiquitous-umbrella-7x5q7j699grcw6xr-8002.app.github.dev"; // ⚠️ 改成你的后端地址
-const API_BASE =
-  process.env.REACT_APP_API_BASE || "https://tcm-backend-nxdi.onrender.com";
+const API_BASE = "https://cuddly-carnival-4rv4qp57744cqp5v-8001.app.github.dev"; // ⚠️ 改成你的后端地址
+//const API_BASE =
+//  process.env.REACT_APP_API_BASE || "https://tcm-backend-nxdi.onrender.com";
 
 const JsonEditorPanel: React.FC = () => {
   const [fileList, setFileList] = useState<string[]>([]);
@@ -12,7 +12,7 @@ const JsonEditorPanel: React.FC = () => {
   const [status, setStatus] = useState<string>("");
   const [theme, setTheme] = useState<"light" | "vs-dark">("light");
 
-  // ✅ 加载文件列表
+  // ✅ 加载文件列表（带排序）
   useEffect(() => {
     fetch(`${API_BASE}/list_json_files`)
       .then((res) => res.json())
@@ -22,15 +22,24 @@ const JsonEditorPanel: React.FC = () => {
           : Array.isArray(data.files)
           ? data.files
           : [];
-        if (files.length === 0) setStatus("⚠️ 没有找到任何 JSON 文件。");
-        else {
-          setFileList(files);
-          setSelectedFile(files[0]);
-          setStatus(`✅ 已加载 ${files.length} 个文件`);
+        if (files.length === 0) {
+          setStatus("⚠️ 没有找到任何 JSON 文件。");
+        } else {
+          // 🔢 按文件名中的数字部分进行升序排序（f001.json → f045.json）
+          const sortedFiles = files.sort((a: string, b: string) => {
+            const numA = parseInt(a.replace(/\D/g, ""), 10);
+            const numB = parseInt(b.replace(/\D/g, ""), 10);
+            return numA - numB;
+          });
+          setFileList(sortedFiles);
+          setSelectedFile(sortedFiles[0]);
+          setStatus(`✅ 已加载 ${sortedFiles.length} 个文件（已排序）`);
         }
       })
       .catch((err) => setStatus(`❌ 加载文件列表失败: ${err.message}`));
   }, []);
+
+
 
   // ✅ 加载选中的 JSON 文件
   useEffect(() => {
